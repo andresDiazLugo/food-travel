@@ -1,0 +1,13 @@
+# Ignorar archivos de compilación
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar archivos generados por el IDE
+__pycache__/
+
+# Ignorar archivos locales de configuración
+.env
+*.env
+
+
