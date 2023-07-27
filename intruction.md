@@ -6,3 +6,4 @@
 - luego de estar en la carpeta Script ejecutaras este comando (. activate) esto activara el entorno virtual para poder instalar modulos en el entorno virtual
 - luego procederemos a salir de la carpeta Script con el comando (cd ..) apretar enter
 esto nos llevara a una carpeta atras volover a usar (cd ..) y con esto estaremos en el directorio raiz
+- utilizar este comando para instalar las dependencias que necesitas(pip install -r requirements.txt)
