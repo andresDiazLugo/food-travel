@@ -1,15 +1,17 @@
 # importaciones de modulos de terceros
-import customtkinter as tk
+import customtkinter as ctk
 # importaciones de controllers
 from controllers.controllerUser import ControllerUser
 # importaciones de vistas
 from views.registerUser import RegisterUser
-class Main(tk.CTk):
+from views.signinUser import SignInUser
+class Main(ctk.CTk):
     def __init__(self):
         super().__init__()
+        self.s='hola mundoo'
         self.title('Food Travel')
         self.resizable(False,False)
-        window_width, window_height = 1200, 900
+        window_width, window_height = 1000, 700
         self.window_center(window_width,window_height)
         self.initControllerAndViews()
     def window_center(self, w, h):
@@ -21,14 +23,17 @@ class Main(tk.CTk):
     def adjust_frame(self,frame,row=0, column=0,sticky="nsew"):
         frame.grid(row=row,column=column,sticky=sticky)
     def expand_frame(self,frame):
-        frame.pack(expand=True)
+        frame.pack(fill="both",expand=True)
     def initControllerAndViews(self):
         # instanciamos los controllers
         user_controller = ControllerUser(self)
         # instanciamos las vistas
         self.user_view = RegisterUser(self,user_controller)
+        self.user_view_login = SignInUser(self,user_controller)
         # configuramos tamañlos o posisiones
-        self.expand_frame(self.user_view) 
+        self.expand_frame(self.user_view)
+    def change_frame(self, frame_address):
+        frame_address.pack()
 if __name__ == '__main__':
     app = Main()
     app.mainloop()

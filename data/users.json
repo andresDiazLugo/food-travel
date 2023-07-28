@@ -1,0 +1,12 @@
+{
+    "usuarios": [
+        {
+            "id": "8fde59e8-8972-47a4-a8d8-d75ba3079dcc",
+            "nombre": "Alberto",
+            "apellido": "Diaz",
+            "email": "andresd.ad5@gmail.com",
+            "passsowrd": "argentina18A",
+            "historial_rutas": []
+        }
+    ]
+}
