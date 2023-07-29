@@ -23,7 +23,7 @@ class Usuario:
                          'nombre' : self.nombre,
                          'apellido' : self.apellido,
                          'email' : self.email,
-                         'passsowrd' : self.password,
+                         'password' : self.password,
                          'historial_rutas': self.historial_rutas
                     }
                     data['usuarios'].append(data_user)
@@ -64,7 +64,7 @@ class Usuario:
         if self.password == '':
             errors.append('El password es obligatorio')
         if not es_email_valido(self.email):
-            errors.append('El email tine que ser un email valido')
+            errors.append('El email tiene que ser un email valido')
         if len(errors) > 0 :
              errors = ",".join(errors)
              return errors
