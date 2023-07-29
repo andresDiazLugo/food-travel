@@ -40,7 +40,8 @@ class RegisterUser(ctk.CTkFrame):
         self.label_email.pack()
         self.emailInput.pack()
         # 
-        self.passwordInput = ctk.CTkEntry( self.form_content,width=300, placeholder_text='ingrese password')
+        bullet = "\u2022"
+        self.passwordInput = ctk.CTkEntry( self.form_content,width=300,show=bullet, placeholder_text='ingrese password')
         self.label_password = ctk.CTkLabel( self.form_content,text='password:', text_color="white")
         self.label_password.pack()
         self.passwordInput.pack()
