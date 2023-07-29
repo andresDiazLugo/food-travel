@@ -1,11 +1,27 @@
 {
     "usuarios": [
         {
-            "id": "8fde59e8-8972-47a4-a8d8-d75ba3079dcc",
+            "id": "662e1fa5-fe3c-4362-9a45-01e4e2b39bcc",
             "nombre": "Alberto",
             "apellido": "Diaz",
             "email": "andresd.ad5@gmail.com",
-            "passsowrd": "argentina18A",
+            "password": "argentina18A",
+            "historial_rutas": []
+        },
+        {
+            "id": "8cf7539a-280e-44c0-a816-418eee086315",
+            "nombre": "genjutsu",
+            "apellido": "raven",
+            "email": "genjutsu092@gmail.com",
+            "password": "argentina18A",
+            "historial_rutas": []
+        },
+        {
+            "id": "b22938d2-1d6c-4fa2-a48a-c96c4922a614",
+            "nombre": "sadsa",
+            "apellido": "asdsad",
+            "email": "asdsa@gamil.com",
+            "password": "argentina18A",
             "historial_rutas": []
         }
     ]
