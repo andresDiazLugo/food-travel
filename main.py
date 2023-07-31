@@ -5,7 +5,7 @@ from controllers.controllerUser import ControllerUser
 # importaciones de vistas
 from views.registerUser import RegisterUser
 from views.signinUser import SignInUser
-from views.home import Home
+from views.navOptions import Nav_Options
 class Main(ctk.CTk):
     def __init__(self):
         super().__init__()
@@ -28,7 +28,7 @@ class Main(ctk.CTk):
         # instanciamos los controllers
         user_controller = ControllerUser(self)
         # instanciamos las vistas
-        self.home_view = Home(self)
+        self.home_view = Nav_Options(self,user_controller)
         self.user_view_login = SignInUser(self,user_controller)
         self.user_view = RegisterUser(self,user_controller)
         self.grid_rowconfigure(0, weight=1)
