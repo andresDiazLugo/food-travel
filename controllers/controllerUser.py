@@ -31,6 +31,8 @@ class ControllerUser:
                     if searchUser['password'] == newUserLogin.password:
                          self.session = searchUser
                          self.navigate_home()
+                         self.app.home_view.name_user.configure(text=self.session['nombre'])
+                         print('esta es la session',self.session)
                     else:
                          self.app.user_view_login.meesageError('El email o password son incorrectos, vuelve a intentar')
                else:
