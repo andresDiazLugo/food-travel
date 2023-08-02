@@ -1,0 +1,20 @@
+{
+    "usuarios": [
+        {
+            "id": "331974bf-370d-461b-b8e3-b97f32b7708d",
+            "nombre": "Alberto Andres",
+            "apellido": "Diaz Lugo",
+            "email": "myemail@gmail.com",
+            "password": "mypassword",
+            "historial_rutas": []
+        },
+        {
+            "id": "04d47e15-44ec-44a7-91b2-a4ca87a7fd2c",
+            "nombre": "Andres",
+            "apellido": "DIaz",
+            "email": "myemail1@gmail.com",
+            "password": "mypassword",
+            "historial_rutas": []
+        }
+    ]
+}
