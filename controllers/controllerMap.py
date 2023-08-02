@@ -35,4 +35,5 @@ class Controller_Map:
                     self.list_destinos = list(filter(self.type_food,self.list_destinos))
             return self.list_destinos
     def search_id_ubicacion(self):
+        pass
         
