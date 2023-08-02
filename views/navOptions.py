@@ -3,26 +3,29 @@ from tkinter import messagebox
 from controllers.controllerUser import ControllerUser
 
 class Nav_Options(ctk.CTkFrame):
-    def __init__(self,app,controller:ControllerUser):
+    def __init__(self,app,controller:ControllerUser,controllerMap):
         super().__init__(app,fg_color='white')
         self.controller = controller
+        self.controllerMap = controllerMap
+        self.app = app
         self.pack()
+    
 
         self.frame_option= ctk.CTkFrame(self,fg_color='#343a40',width=180,height=700)
         self.frame_option.pack(side=ctk.LEFT)
 
         # botones para el frame nav options
-        boton_home = ctk.CTkButton(self.frame_option, text='Home',font=('Bold',18),text_color='orange',fg_color='#343a40',command=lambda:self.indicate(self.indicate_home,self.view_home))
-        boton_home.place(x=20, y=50)
-        self.indicate_home = ctk.CTkLabel(self.frame_option,text='',fg_color='#343a40',width=5,height=30)
-        self.indicate_home.place(x=14,y=50)
+        boton_destino_culinario = ctk.CTkButton(self.frame_option, text='Destinos',font=('Bold',18),text_color='white',fg_color='#343a40',command=lambda:self.indicate(self.destino_culinario,self.view_map))
+        boton_destino_culinario.place(x=20, y=50)
+        self.destino_culinario = ctk.CTkLabel(self.frame_option,text='',fg_color='#343a40',width=5,height=30)
+        self.destino_culinario.place(x=14,y=50)
 
-        boton_menu = ctk.CTkButton(self.frame_option, text='Menu',font=('Bold',18),text_color='orange',fg_color='#343a40',command=lambda:self.indicate(self.indicate_menu,self.view_menu))
+        boton_menu = ctk.CTkButton(self.frame_option, text='Menu',font=('Bold',18),text_color='white',fg_color='#343a40',command=lambda:self.indicate(self.indicate_menu,self.view_menu))
         boton_menu.place(x=20, y=100)
         self.indicate_menu = ctk.CTkLabel(self.frame_option,text='',fg_color='#343a40',width=5,height=30)
         self.indicate_menu.place(x=14,y=100)
 
-        boton_about = ctk.CTkButton(self.frame_option, text='About',font=('Bold',18),text_color='orange',fg_color='#343a40',command=lambda:self.indicate(self.indicate_about,self.view_about))
+        boton_about = ctk.CTkButton(self.frame_option, text='About',font=('Bold',18),text_color='white',fg_color='#343a40',command=lambda:self.indicate(self.indicate_about,self.view_about))
         boton_about.place(x=20, y=150)
         self.indicate_about = ctk.CTkLabel(self.frame_option,text='',fg_color='#343a40',width=5,height=30)
         self.indicate_about.place(x=14,y=150)
@@ -37,7 +40,7 @@ class Nav_Options(ctk.CTkFrame):
         # frame donde se va a renderizar las demas vistas
         self.main_frame = ctk.CTkFrame(self,fg_color='white',width=820,height=700)
         self.main_frame.pack(side=ctk.LEFT)
-        self.indicate(self.indicate_home,self.view_home)
+        self.indicate(self.destino_culinario,self.view_map)
         
         # function of navigate
     def indicate(self,lb,page):
@@ -45,15 +48,14 @@ class Nav_Options(ctk.CTkFrame):
         lb.configure(fg_color='orange')
         self.delete_page()
         page()
-        print('mostrar',self.controller.session)
     def remove_indicate(self):
-        self.indicate_home.configure(fg_color='#343a40')
+        self.destino_culinario.configure(fg_color='#343a40')
         self.indicate_menu.configure(fg_color='#343a40')
         self.indicate_about.configure(fg_color='#343a40')
         # views options
-    def view_home(self):
-        home = ctk.CTkFrame(self.main_frame,fg_color='green',width=820,height=700)
-        home.pack(side=ctk.LEFT)
+    def view_map(self):
+         map = self.app.map_view(self.main_frame,self.app.destinos_culinarios,self.controllerMap )
+         map.pack(side=ctk.LEFT)
     def view_menu(self):
         menu = ctk.CTkFrame(self.main_frame,fg_color='red',width=820,height=700)
         menu.pack(side=ctk.LEFT)

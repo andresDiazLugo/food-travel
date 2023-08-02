@@ -1,0 +1,39 @@
+{
+    "ubicaciones": [
+        {
+            "id": 0,
+            "direccion":"salta, san lorenzo",
+            "coordenadas":[-24.74701642067802, -65.4836186087478]
+        },
+        {
+            "id": 1,
+            "direccion":"salta, san lorenzo",
+            "coordenadas":[-24.746181, -65.486921]
+        },
+        {
+            "id": 2,
+            "direccion":"salta, san lorenzo",
+            "coordenadas":[-24.751752, -65.488003]
+        },
+        {
+            "id": 3,
+            "direccion":"salta, cafayate san carlos",
+            "coordenadas":[-26.0724945072058, -65.9722124229723]
+        },
+        {
+            "id": 4,
+            "direccion":"Cafayate, salta",
+            "coordenadas":[-26.072244, -65.973747]
+        },
+        {
+            "id": 5,
+            "direccion":"salta, cafayate san carlos",
+            "coordenadas":[-26.072639062945264, -65.97107516636096]
+        },
+        {
+            "id": 6,
+            "direccion":"Cafayate, salta",
+            "coordenadas":[-26.070778144927093, -65.97937618964194]
+        }
+    ]
+}

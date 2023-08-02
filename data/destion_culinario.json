@@ -1,0 +1,77 @@
+{
+    "destinos_culinarios": [
+        {
+            "id": 0,
+            "nombre": "La Nona",
+            "tipo_cocina": "Regional",
+            "ingredientes": ["ingrediente1","ingrediente2","ingrediente3"],
+            "precio_minimo": 3000 ,
+            "precio_maximo": 5000,
+            "popularidad": 0,
+            "disponibilidad": true,
+            "id_ubicacion": 0,
+            "imagen": "assets/img_login.jpg"
+        },
+        {
+            "id": 1,
+            "nombre": "Las nortenitas",
+            "tipo_cocina": "Regional",
+            "ingredientes": ["ingrediente1","ingrediente2","ingrediente3"],
+            "precio_minimo": 2000 ,
+            "precio_maximo": 4000,
+            "popularidad": 0,
+            "disponibilidad": true,
+            "id_ubicacion": 0,
+            "imagen": "assets/img_login.jpg"
+        },
+        {
+            "id": 2,
+            "nombre": "la cafayatongas",
+            "tipo_cocina": "Hindu",
+            "ingredientes": ["ingrediente1","ingrediente2","ingrediente3"],
+            "precio_minimo": 4000 ,
+            "precio_maximo": 7000,
+            "popularidad": 0,
+            "disponibilidad": true,
+            "id_ubicacion": 1,
+            "imagen": "assets/img_login.jpg"
+        },
+        {
+            "id": 3,
+            "nombre": "La pachamama",
+            "tipo_cocina": "Mediterranea",
+            "ingredientes": ["ingrediente1","ingrediente2","ingrediente3"],
+            "precio_minimo": 1400 ,
+            "precio_maximo": 3300,
+            "popularidad": 0,
+            "disponibilidad": true,
+            "id_ubicacion": 2,
+            "imagen": "assets/img_login.jpg"
+        },
+        {
+            "id": 4,
+            "nombre": "La pena",
+            "tipo_cocina": "Regional",
+            "ingredientes": ["ingrediente1","ingrediente2","ingrediente3"],
+            "precio_minimo": 2000 ,
+            "precio_maximo": 5000,
+            "popularidad": 0,
+            "disponibilidad": true,
+            "id_ubicacion": 2,
+            "imagen": "assets/img_login.jpg"
+        },
+        {
+            "id": 5,
+            "nombre": "La delicias la linda",
+            "tipo_cocina": "Regional",
+            "ingredientes": ["ingrediente1","ingrediente2","ingrediente3"],
+            "precio_minimo": 1000 ,
+            "precio_maximo": 6000,
+            "popularidad": 0,
+            "disponibilidad": true,
+            "id_ubicacion": 4,
+            "imagen": "assets/img_login.jpg"
+        }
+
+    ]
+}
