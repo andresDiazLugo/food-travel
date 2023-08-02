@@ -66,7 +66,7 @@ class Nav_Options(ctk.CTkFrame):
         for frame in self.main_frame.winfo_children():
             frame.destroy()
     def show_message_logout(self):
-        response = messagebox.askokcancel("Confirmar", "¿Estás de que quieres cerrar sesion?")
+        response = messagebox.askokcancel("Confirmar", "¿Estás seguro de que quieres cerrar sesion?")
         if response:
             self.controller.navigate_login()
        
