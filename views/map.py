@@ -27,7 +27,7 @@ class Map(ctk.CTkFrame):
         self.checkbox_precio_mayor = ctk.CTkRadioButton(self.frame_header, text='precio mayor',variable=self.state_check_precio,value='precio mayor',fg_color='orange')
         self.checkbox_precio_mayor.place(x=200,y=80)
         
-        self.dorpdown_options = ctk.CTkOptionMenu(self.frame_header,values=["Todos","Regional", "Hindu", "Mediterranea"],fg_color='orange')
+        self.dorpdown_options = ctk.CTkOptionMenu(self.frame_header,values=["Todos","Regional", "Hindu", "Mediterranea","Japonesa","Canadiense","Mexicana"],fg_color='orange')
         self.dorpdown_options.place(x=30,y=120)
         
         

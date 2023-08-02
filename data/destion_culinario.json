@@ -2,13 +2,13 @@
     "destinos_culinarios": [
         {
             "id": 0,
-            "nombre": "La Nona",
-            "tipo_cocina": "Regional",
-            "ingredientes": ["ingrediente1","ingrediente2","ingrediente3"],
-            "precio_minimo": 3000 ,
-            "precio_maximo": 5000,
-            "popularidad": 0,
-            "disponibilidad": true,
+            "nombre": "Poutine",
+            "tipo_cocina": "Canadiense",
+            "ingredientes": ["Papas fritas", "queso cheddar en trozos", "gravy"],
+            "precio_minimo": 5 ,
+            "precio_maximo": 12,
+            "popularidad": 3,
+            "disponibilidad": false,
             "id_ubicacion": 0,
             "imagen": "assets/img_login.jpg"
         },
@@ -50,12 +50,12 @@
         },
         {
             "id": 4,
-            "nombre": "La pena",
+            "nombre": "La Nona",
             "tipo_cocina": "Regional",
             "ingredientes": ["ingrediente1","ingrediente2","ingrediente3"],
             "precio_minimo": 2000 ,
             "precio_maximo": 5000,
-            "popularidad": 0,
+            "popularidad": 1,
             "disponibilidad": true,
             "id_ubicacion": 2,
             "imagen": "assets/img_login.jpg"
@@ -67,11 +67,46 @@
             "ingredientes": ["ingrediente1","ingrediente2","ingrediente3"],
             "precio_minimo": 1000 ,
             "precio_maximo": 6000,
-            "popularidad": 0,
+            "popularidad": 2,
+            "disponibilidad": true,
+            "id_ubicacion": 4,
+            "imagen": "assets/img_login.jpg"
+        },
+        {
+            "id": 6,
+            "nombre": "Paella Valenciana",
+            "tipo_cocina": "Mediterránea",
+            "ingredientes": ["Arroz", "pollo", "conejo", "judías verdes", "garrofó", "pimiento rojo", "tomate", "azafrán", "aceite de oliva"],
+            "precio_minimo": 15 ,
+            "precio_maximo": 30,
+            "popularidad": 5,
+            "disponibilidad": true,
+            "id_ubicacion": 4,
+            "imagen": "assets/img_login.jpg"
+        },
+        {
+            "id": 7,
+            "nombre": "Chiles en Nogada",
+            "tipo_cocina": "Mexicana",
+            "ingredientes": ["Chiles poblanos"," carne de cerdo y res", "frutas como manzana", "pera y durazno", "nueces", "crema y granada"],
+            "precio_minimo": 10,
+            "precio_maximo": 20,
+            "popularidad": 5,
+            "disponibilidad": true,
+            "id_ubicacion": 4,
+            "imagen": "assets/img_login.jpg"
+        },
+        {
+            "id": 8,
+            "nombre": "Sushi",
+            "tipo_cocina": "Japonesa",
+            "ingredientes": ["Arroz", "pescado fresco, alga nori", "aguacate", "pepino", "jengibre", "wasabi"],
+            "precio_minimo": 8,
+            "precio_maximo": 25,
+            "popularidad": 5,
             "disponibilidad": true,
             "id_ubicacion": 4,
             "imagen": "assets/img_login.jpg"
         }
-
     ]
 }
