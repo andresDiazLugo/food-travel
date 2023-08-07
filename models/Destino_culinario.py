@@ -6,7 +6,7 @@ import re
 #tipando una variable con ocpiones especificas
 categoria = Literal['Italiana','Mediterranea','Regional','Hindu']
 class Destino_culinario:
-    def __init__(self,id:int,nombre:str,tipo_cocina:categoria,ingredientes:List[str],precio_minimo:float,precio_maximo:float,popularidad:float,disponibilidad:bool,id_ubicacion:int,imagen:str):
+    def __init__(self,id:(int | None)=None,nombre:(str | None)=None,tipo_cocina:(categoria | None)=None,ingredientes:(List[str] | None)=None,precio_minimo:(float | None)=None,precio_maximo:(float | None)=None,popularidad:(float | None)=None,disponibilidad:(bool | None)=None,id_ubicacion:(int | None)=None,imagen:(str | None)=None):
         self.id = id
         self.nombre = nombre
         self.tipo_cocina = tipo_cocina
@@ -28,20 +28,37 @@ class Destino_culinario:
             return [cls(**element) for element in data['destinos_culinarios']]
         else: 
             return False
+    def searchDestino(self,value):
+        print('entrando al metodo', value)
+        current_directory = os.getcwd()
+        file_path = os.path.join(current_directory,'data/destion_culinario.json')
+        if os.path.exists(file_path):
+              with open(file_path, 'r') as file:
+                data = json.load(file)
+                for destino in data['destinos_culinarios']:
+                    self.searchKey(destino,value)
+                    if self.searchKey(destino,value):
+                         return destino
+                return False
+    def searchKey(self,dicc,value_comparate):
+        for key,value in dicc.items():
+              if(value == value_comparate):
+                   return True
+        return False
         
-class ComidaRegional:
-    def __init__(self, id, nombre, tipo_cocina, ingredientes, precio_minimo, precio_maximo,
-                 popularidad, disponibilidad, id_ubicacion, imagen):
-        self.id = id
-        self.nombre = nombre
-        self.tipo_cocina = tipo_cocina
-        self.ingredientes = ingredientes
-        self.precio_minimo = precio_minimo
-        self.precio_maximo = precio_maximo
-        self.popularidad = popularidad
-        self.disponibilidad = disponibilidad
-        self.id_ubicacion = id_ubicacion
-        self.imagen = imagen
+# class ComidaRegional:
+#     def __init__(self, id, nombre, tipo_cocina, ingredientes, precio_minimo, precio_maximo,
+#                  popularidad, disponibilidad, id_ubicacion, imagen):
+#         self.id = id
+#         self.nombre = nombre
+#         self.tipo_cocina = tipo_cocina
+#         self.ingredientes = ingredientes
+#         self.precio_minimo = precio_minimo
+#         self.precio_maximo = precio_maximo
+#         self.popularidad = popularidad
+#         self.disponibilidad = disponibilidad
+#         self.id_ubicacion = id_ubicacion
+#         self.imagen = imagen
         # por que hay dos dejandolo como original para que se vea la modificacion 
 
 # Crear instancias de ComidaRegional para cada variedad de comida

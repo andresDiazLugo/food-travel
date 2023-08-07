@@ -10,6 +10,7 @@ from views.registerUser import RegisterUser
 from views.signinUser import SignInUser
 from views.navOptions import Nav_Options
 from views.map import Map
+from views.detailDestino import DetailDestino
 class Main(ctk.CTk):
     def __init__(self):
         super().__init__()
@@ -36,6 +37,7 @@ class Main(ctk.CTk):
         user_controller = ControllerUser(self)
         map_controller = Controller_Map(self)
         # instanciamos las vistas
+        self.detailview = DetailDestino
         self.map_view = Map
         self.user_view_login = SignInUser(self,user_controller)
         self.user_view = RegisterUser(self,user_controller)
