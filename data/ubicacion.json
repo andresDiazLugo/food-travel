@@ -32,8 +32,18 @@
         },
         {
             "id": 6,
-            "direccion":"Cafayate, salta",
-            "coordenadas":[-26.070778144927093, -65.97937618964194]
+            "direccion":"salta",
+            "coordenadas":[-24.828379, -65.395049]
+        },
+        {
+            "id": 7,
+            "direccion":"salta, san lorenzo",
+            "coordenadas":[-24.724698, -65.501663]
+        },
+        {
+            "id": 8,
+            "direccion":"Mendoza, argentina",
+            "coordenadas":[-32.883622, -68.853713]
         }
     ]
 }

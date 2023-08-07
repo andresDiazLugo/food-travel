@@ -31,6 +31,7 @@ class Usuario:
                     with open(file_path,'w') as file:
                          json.dump(data,file,indent=4)
                          print("El usuario se registro con exito")
+    
 
     def searchUser(self,value):
         current_directory = os.getcwd()

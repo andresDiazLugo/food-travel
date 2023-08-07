@@ -54,7 +54,7 @@ class Nav_Options(ctk.CTkFrame):
         self.indicate_about.configure(fg_color='#343a40')
         # views options
     def view_map(self):
-         map = self.app.map_view(self.main_frame,self.app.destinos_culinarios,self.controllerMap )
+         map = self.app.map_view(self.main_frame,self.app,self.controllerMap )
          map.pack(side=ctk.LEFT)
     def view_menu(self):
         menu = ctk.CTkFrame(self.main_frame,fg_color='red',width=820,height=700)
