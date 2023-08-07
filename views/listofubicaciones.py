@@ -12,7 +12,7 @@ class ScrollableLabelButtonFrame(customtkinter.CTkScrollableFrame):
         self.buttonVer_list = []
         self.labelNotfund = None
 
-    def add_item(self,titleLabel, item,id_ubicaciones):
+    def add_item(self,titleLabel, item,id_ubicaciones,tupla_cordenadas):
 
         button_agregar = customtkinter.CTkButton(self, text="agregar recorrido",font=('Bold',13), width=100, height=24)
         boton_ver = customtkinter.CTkButton(self, text='ver', width=100,font=('Bold',13), height=24) 
@@ -20,7 +20,7 @@ class ScrollableLabelButtonFrame(customtkinter.CTkScrollableFrame):
         if self.command is not None:
             boton_ver.configure(command=lambda: self.command(item,id_ubicaciones))
         if self.comandAddPath is not None:
-             button_agregar.configure(command=lambda: self.comandAddPath())
+             button_agregar.configure(command=lambda: self.comandAddPath(tupla_cordenadas))
         button_agregar.grid(row=len(self.button_list), column=1, pady=(0, 10), padx=5)
         boton_ver.grid(row=len(self.button_list), column=2, pady=(0, 10), padx=5)
         label.grid(row=len(self.label_list), column=0, pady=(0, 10), sticky="w")
