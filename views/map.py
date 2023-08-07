@@ -5,12 +5,14 @@ from PIL import Image,ImageTk
 import os
 from controllers.controllerMap import Controller_Map
 from views.listofubicaciones import ScrollableLabelButtonFrame
-
+from tkinter import messagebox
 class Map(ctk.CTkFrame):
     def __init__(self,app,viewMain,controllermap:Controller_Map | None = None):
         super().__init__(app,width=820,fg_color='orange',height=700)
+        
         self.app = app
         self.controllerMap = controllermap
+        self.list_path = []
         self.list_destinos_culinarios = viewMain.destinos_culinarios
         self.viewMain = viewMain
         self.state_check_precio = ctk.StringVar()
@@ -45,10 +47,7 @@ class Map(ctk.CTkFrame):
         self.map_widget.set_tile_server("https://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}&s=Ga", max_zoom=18) 
         self.map_widget.set_zoom(18)
         self.add_element_scrollLaber()
-
-        
-        
-        
+     
         # aca colocaremos el frame que contendra el mapa
     def add_element_scrollLaber(self):
             self.controllerMap.add_list(self.list_destinos_culinarios)
@@ -57,6 +56,7 @@ class Map(ctk.CTkFrame):
             type_food = self.dorpdown_options.get()
             lista_u = self.controllerMap.filterDestinos(precio,input_entry,type_food)
             self.ScrollableLabelButtonFrame.remove_item()
+            
             if len(lista_u) > 0 :
                 for destino in lista_u:
                     current_directory = os.getcwd()
@@ -70,7 +70,7 @@ class Map(ctk.CTkFrame):
                     item = location['coordenadas'],location['direccion']
                     self.ScrollableLabelButtonFrame.command = self.view_location
                     self.ScrollableLabelButtonFrame.comandAddPath = self.marker_path
-                    self.ScrollableLabelButtonFrame.add_item(destino.nombre,item,destino.id)
+                    self.ScrollableLabelButtonFrame.add_item(destino.nombre,item,destino.id,(location['coordenadas'][0],location['coordenadas'][1]))
             else:
                     self.ScrollableLabelButtonFrame.add_NotFound()
             self.search_entry.delete(0, ctk.END)
@@ -82,5 +82,10 @@ class Map(ctk.CTkFrame):
     def openWindows(self,id_ubicacion):
         self.controllerMap.open_windows(self.viewMain,id_ubicacion)
     def marker_path(self,tupla_cordenadas):
-         self.map_widget.set_path([(-24.74701642067802, -65.4836186087478),(-24.746181, -65.486921)])
-        
+        confirm = messagebox.askokcancel("Confirmar", "¿Estás de que quieres agregar una ruta a tu lista de visitas?")
+        if confirm:
+            self.list_path.append(tupla_cordenadas)
+            if len(self.list_path) >= 2 :
+                self.map_widget.set_path(self.list_path)
+            else:
+                messagebox.showinfo('recuerda','recuerda para crear un ruta debes agregar mas de una ruta')
