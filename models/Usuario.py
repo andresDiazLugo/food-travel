@@ -4,7 +4,7 @@ import json
 import re
 
 class Usuario:
-    def __init__(self,id:str,email:str,password:str, nombre:str, apellido:str,historial_rutas:(List[int | None])=[]) -> None:
+    def __init__(self,id:(str | None)=None,email:(str | None)=None,password:(str | None)=None, nombre:(str | None)=None, apellido:(str | None)=None,historial_rutas:(List[int | None])=[]) -> None:
         self.id = id
         self.email = email
         self.password = password        
@@ -47,8 +47,8 @@ class Usuario:
               
     def searchKey(self,dicc,value_comparate):
         for key,value in dicc.items():
-              if(value == value_comparate):
-                   return True
+            if(value == value_comparate):
+                return True
         return False
     def comprobate_property(self):
         def es_email_valido(email):
@@ -67,8 +67,56 @@ class Usuario:
         if not es_email_valido(self.email):
             errors.append('El email tiene que ser un email valido')
         if len(errors) > 0 :
-             errors = ",".join(errors)
-             return errors
+            errors = ",".join(errors)
+            return errors
         else:
-             return errors
-    
+            return errors
+    def add_element_history_path(self,sesion,value=None):
+        email = sesion['email']
+        found_email:Usuario = self.searchUser(email)
+        if found_email :
+            current_directory = os.getcwd()
+            file_path = os.path.join(current_directory,'data/users.json')
+            with open(file_path, 'r') as file:
+                data = json.load(file)
+                user_id = sesion['id']
+                user_index = next((index for (index, user) in enumerate(data['usuarios']) if user['id'] == user_id), None)
+                if user_index is not None:
+                    data['usuarios'][user_index]['historial_rutas'].append(value)
+                    with open(file_path, 'w') as json_data:
+                        json.dump(data, json_data, indent=4)
+                        return True
+                else:
+                    return False
+        else:
+            return False
+    def delete_all_history_path(self,sesion):
+            print('entrandiii')
+            current_directory = os.getcwd()
+            file_path = os.path.join(current_directory,'data/users.json')
+            with open(file_path, 'r') as file:
+                data = json.load(file)
+                user_id = sesion['id']
+                user_index = next((index for (index, user) in enumerate(data['usuarios']) if user['id'] == user_id), None)
+                if user_index is not None:
+                    data['usuarios'][user_index]['historial_rutas']=[]
+                    with open(file_path, 'w') as json_data:
+                        json.dump(data, json_data, indent=4)
+                        return True
+                else:
+                    return False
+    def delete_history_path(self,sesion,id=None):
+            current_directory = os.getcwd()
+            file_path = os.path.join(current_directory,'data/users.json')
+            with open(file_path, 'r') as file:
+                data = json.load(file)
+                user_id = sesion['id']
+                user_index = next((index for (index, user) in enumerate(data['usuarios']) if user['id'] == user_id), None)
+                if user_index is not None:
+                    filter_user_id = [element for element in data['usuarios'][user_index]['historial_rutas'] if element != id ]
+                    data['usuarios'][user_index]['historial_rutas'] = filter_user_id
+                    with open(file_path, 'w') as json_data:
+                        json.dump(data, json_data, indent=4)
+                        return True
+                else:
+                    return False

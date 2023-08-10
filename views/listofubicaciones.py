@@ -3,7 +3,6 @@ class ScrollableLabelButtonFrame(customtkinter.CTkScrollableFrame):
     def __init__(self, master, command=None,comandAddPath = None, **kwargs):
         super().__init__(master, **kwargs)
         self.grid_columnconfigure(0, weight=1)
-
         self.command = command
         self.comandAddPath = comandAddPath
         self.radiobutton_variable = customtkinter.StringVar()
@@ -20,7 +19,7 @@ class ScrollableLabelButtonFrame(customtkinter.CTkScrollableFrame):
         if self.command is not None:
             boton_ver.configure(command=lambda: self.command(item,id_ubicaciones))
         if self.comandAddPath is not None:
-             button_agregar.configure(command=lambda: self.comandAddPath(tupla_cordenadas))
+             button_agregar.configure(command=lambda: self.comandAddPath(tupla_cordenadas,id_ubicaciones))
         button_agregar.grid(row=len(self.button_list), column=1, pady=(0, 10), padx=5)
         boton_ver.grid(row=len(self.button_list), column=2, pady=(0, 10), padx=5)
         label.grid(row=len(self.label_list), column=0, pady=(0, 10), sticky="w")

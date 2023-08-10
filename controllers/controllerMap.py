@@ -53,4 +53,14 @@ class Controller_Map:
     def show_elements_destino(self,destino_id):
         print('encontre esto',Destino_culinario().searchDestino(destino_id))
         return Destino_culinario().searchDestino(destino_id)
-    
+    def add_path_history_user(self,id_destino):
+        session_user = self.app.user_controller.session
+        print('mostrame',session_user)
+        if session_user is not None:
+            confirm = Usuario().add_element_history_path(session_user,id_destino)
+            if confirm:
+                print("Se agregó al historial")
+            else:
+                print("Hubo un error en el registro del histórico")
+        else:
+            print('no existe user')

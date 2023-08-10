@@ -81,11 +81,15 @@ class Map(ctk.CTkFrame):
         self.openWindows(id_ubicacion)
     def openWindows(self,id_ubicacion):
         self.controllerMap.open_windows(self.viewMain,id_ubicacion)
-    def marker_path(self,tupla_cordenadas):
+    def marker_path(self,tupla_cordenadas,id_destino):
         confirm = messagebox.askokcancel("Confirmar", "¿Estás de que quieres agregar una ruta a tu lista de visitas?")
         if confirm:
+            self.add_path_history(id_destino)
             self.list_path.append(tupla_cordenadas)
             if len(self.list_path) >= 2 :
                 self.map_widget.set_path(self.list_path)
             else:
                 messagebox.showinfo('recuerda','recuerda para crear un ruta debes agregar mas de una ruta')
+    def add_path_history(self,destino_id):
+        self.controllerMap.add_path_history_user(destino_id)
+         

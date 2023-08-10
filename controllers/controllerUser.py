@@ -3,7 +3,8 @@ from models.Usuario import Usuario
 class ControllerUser:
      def __init__(self,app):
         self.app = app
-        self.session = None
+     #    self.session = None
+        self.session =  {"id": '04d47e15-44ec-44a7-91b2-a4ca87a7fd2c', "nombre": 'Andres', "apellido": 'DIaz', "email": 'myemail1@gmail.com', "password": 'mypassword', "historial_rutas": []}
      def register_user(self):
             data_user = self.app.user_view.return_data_user()
             newUser = Usuario(**data_user)
