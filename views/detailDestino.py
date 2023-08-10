@@ -1,11 +1,13 @@
 import customtkinter as ctk
 from controllers.controllerMap import Controller_Map
 from PIL import Image
+from controllers.controllerUser import ControllerUser
 import os
 class DetailDestino(ctk.CTkToplevel):
     def __init__(self,app,destino_id,data_detail):
         super().__init__(app,fg_color='#495057')
         self.destino_id = destino_id
+        self.controller_user = controller_user
         self.title('Detalles de destino')
         window_width, window_height = 300, 450
         self.resizable(False,False)
@@ -56,6 +58,23 @@ class DetailDestino(ctk.CTkToplevel):
         self.label_image.place(x=0, y=200)
 
         label_ingredientes= ctk.CTkLabel(self,text="Ingredientes")
+        self.boton_agregar_favorito = ctk.CTkButton(self, text="Agregar a Favoritos", command=self.agregar_a_favoritos)
+        self.boton_quitar_favorito = ctk.CTkButton(self, text="Quitar de Favoritos", command=self.quitar_de_favoritos)
+
+        # Posiciona los botones
+        self.boton_agregar_favorito.place(x=0, y=500)
+        self.boton_quitar_favorito.place(x=150, y=500)
+
+        def agregar_a_favoritos(self):
+            usuario_id = "id_del_usuario_actual"
+            self.controller_user.agregar_favorito(usuario_id, self.destino_id)
+            # Actualiza la interfaz si es necesario
+
+        def quitar_de_favoritos(self):
+            usuario_id = "id_del_usuario_actual"
+            self.controller_user.quitar_favorito(usuario_id, self.destino_id)
+            # Actualiza la interfaz si es necesario
+
 
         
 

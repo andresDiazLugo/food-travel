@@ -14,6 +14,7 @@ from views.detailDestino import DetailDestino
 class Main(ctk.CTk):
     def __init__(self):
         super().__init__()
+        self.controller_user = ControllerUser(self)  # Instancia el controlador de usuario
         self.s='hola mundoo'
         self.title('Food Travel')
         self.resizable(False,False)
@@ -39,9 +40,9 @@ class Main(ctk.CTk):
         # instanciamos las vistas
         self.detailview = DetailDestino
         self.map_view = Map
-        self.user_view_login = SignInUser(self,user_controller)
-        self.user_view = RegisterUser(self,user_controller)
-        self.home_view = Nav_Options(self,user_controller,map_controller)
+        self.user_view_login = SignInUser(self, self.controller_user)
+        self.user_view = RegisterUser(self, self.controller_user)
+        self.home_view = Nav_Options(self, self.controller_user, map_controller)
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)
         

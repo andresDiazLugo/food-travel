@@ -6,7 +6,8 @@
             "apellido": "Diaz Lugo",
             "email": "myemail@gmail.com",
             "password": "mypassword",
-            "historial_rutas": []
+            "historial_rutas": [],
+            "favoritos": []
         },
         {
             "id": "04d47e15-44ec-44a7-91b2-a4ca87a7fd2c",
@@ -14,7 +15,8 @@
             "apellido": "DIaz",
             "email": "myemail1@gmail.com",
             "password": "mypassword",
-            "historial_rutas": []
+            "historial_rutas": [],
+            "favoritos": []
         },
         {
             "id": "a5f885e8-b54d-46a0-b84f-265463440c77",
@@ -22,7 +24,8 @@
             "apellido": "Lugo",
             "email": "myemail123@gmail.com",
             "password": "mypassword",
-            "historial_rutas": []
+            "historial_rutas": [],
+            "favoritos": []
         },
         {
             "id": "1d216d8d-d8e1-45e4-8f28-0cc3ffc4b025",
@@ -30,7 +33,8 @@
             "apellido": "perez",
             "email": "myemail1234@gmail.com",
             "password": "password",
-            "historial_rutas": []
+            "historial_rutas": [],
+            "favoritos": []
         }
     ]
 }
