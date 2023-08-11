@@ -19,6 +19,7 @@ from views.reviews import Reviews
 class Main(ctk.CTk):
     def __init__(self):
         super().__init__()
+        self.controller_user = ControllerUser(self)  # Instancia el controlador de usuario
         self.s='hola mundoo'
         self.title('Food Travel')
         self.resizable(False,False)

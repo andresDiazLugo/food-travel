@@ -6,7 +6,8 @@
             "apellido": "Diaz Lugo",
             "email": "myemail@gmail.com",
             "password": "mypassword",
-            "historial_rutas": []
+            "historial_rutas": [],
+            "favoritos": []
         },
         {
             "id": "04d47e15-44ec-44a7-91b2-a4ca87a7fd2c",
@@ -25,7 +26,8 @@
             "apellido": "Lugo",
             "email": "myemail123@gmail.com",
             "password": "mypassword",
-            "historial_rutas": []
+            "historial_rutas": [],
+            "favoritos": []
         },
         {
             "id": "1d216d8d-d8e1-45e4-8f28-0cc3ffc4b025",

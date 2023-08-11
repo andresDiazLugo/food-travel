@@ -11,6 +11,7 @@ class Usuario:
         self.nombre = nombre
         self.apellido = apellido
         self.historial_rutas = historial_rutas
+        self.favoritos = favoritos if favoritos is not None else []
     # agregar el decorador para convertir en json o el json convertirlo en un objecto
     def CreateUser(self):
         current_directory = os.getcwd()
