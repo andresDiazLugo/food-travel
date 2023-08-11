@@ -39,6 +39,14 @@
             "calificacion": "2 estrellas",
             "comentario": "muy mala atencion y la comida fria muy incomodo",
             "anonimo": 0
+        },
+        {
+            "id": "a2eb9a7c-8d67-4060-9446-65f1fdaa4a46",
+            "id_destino": 1,
+            "id_usuario": "331974bf-370d-461b-b8e3-b97f32b7708d",
+            "calificacion": "3 estrellas",
+            "comentario": "esooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+            "anonimo": 1
         }
     ]
 }

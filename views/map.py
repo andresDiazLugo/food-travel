@@ -80,7 +80,6 @@ class Map(ctk.CTkFrame):
                self.ScrollableLabelButtonFrame.add_NotFound()
             self.search_entry.delete(0, ctk.END)
     def view_location(self,cordenadas=None,id_ubicacion=None):
-        # print('mostrandooooo',cordenadas[0][0],cordenadas[0][1])
         self.map_widget.set_position(cordenadas[0][0], cordenadas[0][1])
         self.openWindows(id_ubicacion)
     def openWindows(self,id):
