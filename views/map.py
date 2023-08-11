@@ -37,8 +37,6 @@ class Map(ctk.CTkFrame):
         
         
         #listbox para mostrar los destinos
-        self.ScrollableLabelButtonFrame = ScrollableLabelButtonFrame(self.frame_header,width=440, fg_color='orange')
-        self.ScrollableLabelButtonFrame.place(x=359,y=0)
         self.frame_map =ctk.CTkFrame(self,width=820,height=490,fg_color='blue')
         self.frame_map.pack(side=ctk.TOP)
         #aca colocaremos el widget mapa
@@ -50,11 +48,16 @@ class Map(ctk.CTkFrame):
      
         # aca colocaremos el frame que contendra el mapa
     def add_element_scrollLaber(self):
+            self.ScrollableLabelButtonFrame = ScrollableLabelButtonFrame(self.frame_header,width=460, fg_color='orange')
+            self.ScrollableLabelButtonFrame.place(x=338,y=0)
+            self.ScrollableLabelButtonFrame.lift()
             self.controllerMap.add_list(self.list_destinos_culinarios)
+            self.labelNotfund = ctk.CTkLabel(self,text='Ubicaciones no encontradas',font=('Bold',22),text_color='red')
             precio = self.state_check_precio.get()
             input_entry = self.search_entry.get()
             type_food = self.dorpdown_options.get()
             lista_u = self.controllerMap.filterDestinos(precio,input_entry,type_food)
+           
             self.ScrollableLabelButtonFrame.remove_item()
             
             if len(lista_u) > 0 :
@@ -68,23 +71,27 @@ class Map(ctk.CTkFrame):
                                  marker_color_circle="black", marker_color_outside="red", font=("Bold", 15), image_zoom_visibility=(0, float("inf")))
                     # self.map_widget.add_left_click_map_command(lambda cordenadas:self.openWindows(cordenadas,destino.id))
                     item = location['coordenadas'],location['direccion']
+            
                     self.ScrollableLabelButtonFrame.command = self.view_location
                     self.ScrollableLabelButtonFrame.comandAddPath = self.marker_path
+                    self.ScrollableLabelButtonFrame.comandCalificacion = self.openWindows_calificacion
                     self.ScrollableLabelButtonFrame.add_item(destino.nombre,item,destino.id,(location['coordenadas'][0],location['coordenadas'][1]))
             else:
-                    self.ScrollableLabelButtonFrame.add_NotFound()
+               self.ScrollableLabelButtonFrame.add_NotFound()
             self.search_entry.delete(0, ctk.END)
     def view_location(self,cordenadas=None,id_ubicacion=None):
-        print('Hola mundoo',id_ubicacion)
         # print('mostrandooooo',cordenadas[0][0],cordenadas[0][1])
         self.map_widget.set_position(cordenadas[0][0], cordenadas[0][1])
         self.openWindows(id_ubicacion)
-    def openWindows(self,id_ubicacion):
-        self.controllerMap.open_windows(self.viewMain,id_ubicacion)
+    def openWindows(self,id):
+        self.controllerMap.open_windows(self.viewMain,id)
+    def openWindows_calificacion(self,id_ubicacion):
+         self.controllerMap.open_window_calificacion(self.viewMain,id_ubicacion)
     def marker_path(self,tupla_cordenadas,id_destino):
         confirm = messagebox.askokcancel("Confirmar", "¿Estás de que quieres agregar una ruta a tu lista de visitas?")
         if confirm:
             self.add_path_history(id_destino)
+           
             self.list_path.append(tupla_cordenadas)
             if len(self.list_path) >= 2 :
                 self.map_widget.set_path(self.list_path)

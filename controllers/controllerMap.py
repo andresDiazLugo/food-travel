@@ -64,3 +64,5 @@ class Controller_Map:
                 print("Hubo un error en el registro del histórico")
         else:
             print('no existe user')
+    def open_window_calificacion(self,window_father,id_destino):
+        self.app.calificacion_view(window_father,id_destino,self.app)

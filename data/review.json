@@ -1,0 +1,44 @@
+{
+    "reviews": [
+        {
+            "id": "5668139b-3f25-422d-be2d-ff5389ff6b96",
+            "id_destino": 1,
+            "id_usuario": "04d47e15-44ec-44a7-91b2-a4ca87a7fd2c",
+            "calificacion": "5 estrellas",
+            "comentario": "estoy probando la calificacion para ver que tal lo corre",
+            "anonimo": 0
+        },
+        {
+            "id": "1245e0dc-1cd3-44a0-bfdb-8f2a5d425358",
+            "id_destino": 3,
+            "id_usuario": "04d47e15-44ec-44a7-91b2-a4ca87a7fd2c",
+            "calificacion": "4 estrellas",
+            "comentario": "la mejor de todas muy recomendado para comer y sus atracciones una experiencia inolvidable",
+            "anonimo": 1
+        },
+        {
+            "id": "2bac7265-e899-4d4d-b6ba-5d8cc75264fc",
+            "id_destino": 2,
+            "id_usuario": "331974bf-370d-461b-b8e3-b97f32b7708d",
+            "calificacion": "2 estrellas",
+            "comentario": "djkhajkshdjkasjkbdkjbasjkbdjkbasjdas",
+            "anonimo": 0
+        },
+        {
+            "id": "c4195be6-e9be-4a06-80eb-334f45848c41",
+            "id_destino": 8,
+            "id_usuario": "331974bf-370d-461b-b8e3-b97f32b7708d",
+            "calificacion": "5 estrellas",
+            "comentario": "muy buena atencion y la comida execelente recomandable desde mi punto de vista",
+            "anonimo": 1
+        },
+        {
+            "id": "3cd156e4-d9c3-4fc7-9ce7-f7348a170216",
+            "id_destino": 1,
+            "id_usuario": "db487b23-4516-40bf-9227-3126fe1bb01a",
+            "calificacion": "2 estrellas",
+            "comentario": "muy mala atencion y la comida fria muy incomodo",
+            "anonimo": 0
+        }
+    ]
+}

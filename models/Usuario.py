@@ -114,6 +114,7 @@ class Usuario:
                 user_index = next((index for (index, user) in enumerate(data['usuarios']) if user['id'] == user_id), None)
                 if user_index is not None:
                     filter_user_id = [element for element in data['usuarios'][user_index]['historial_rutas'] if element != id ]
+                    print('filter',filter_user_id, id)
                     data['usuarios'][user_index]['historial_rutas'] = filter_user_id
                     with open(file_path, 'w') as json_data:
                         json.dump(data, json_data, indent=4)
