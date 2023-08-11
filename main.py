@@ -5,14 +5,21 @@ from models.Destino_culinario import Destino_culinario
 # importaciones de controllers
 from controllers.controllerUser import ControllerUser
 from controllers.controllerMap import Controller_Map
+from controllers.controllerHistoryUser import Controller_user_history
+from controllers.controllerCalificacion import Controller_calificacion
 # importaciones de vistas
 from views.registerUser import RegisterUser
 from views.signinUser import SignInUser
 from views.navOptions import Nav_Options
 from views.map import Map
+from views.detailDestino import DetailDestino
+from views.userHistory import UserHistory
+from views.calificacion import Calificacion
+from views.reviews import Reviews
 class Main(ctk.CTk):
     def __init__(self):
         super().__init__()
+        self.controller_user = ControllerUser(self)  # Instancia el controlador de usuario
         self.s='hola mundoo'
         self.title('Food Travel')
         self.resizable(False,False)
@@ -33,13 +40,20 @@ class Main(ctk.CTk):
         print('estos son los destinos culinarios',type(self.destinos_culinarios[0]))
     def initControllerAndViews(self):
         # instanciamos los controllers
-        user_controller = ControllerUser(self)
+        self.user_controller = ControllerUser(self)
         map_controller = Controller_Map(self)
+        self.history_user_controller = Controller_user_history(self)
+        self.calificacion_controller = Controller_calificacion(self)
+        
         # instanciamos las vistas
+        self.reviews_views = Reviews
+        self.calificacion_view = Calificacion
+        self.history_user_view = UserHistory
+        self.detailview = DetailDestino
         self.map_view = Map
-        self.user_view_login = SignInUser(self,user_controller)
-        self.user_view = RegisterUser(self,user_controller)
-        self.home_view = Nav_Options(self,user_controller,map_controller)
+        self.home_view = Nav_Options(self,self.user_controller,map_controller)
+        self.user_view_login = SignInUser(self,self.user_controller)
+        self.user_view = RegisterUser(self,self.user_controller)
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)
         

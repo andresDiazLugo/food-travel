@@ -2,7 +2,7 @@ import customtkinter as ctk
 from tkinter import messagebox
 from PIL import Image
 import os
-import uuid
+
 from controllers.controllerUser import ControllerUser
 class SignInUser(ctk.CTkFrame):
     def __init__(self,app=None,controller:ControllerUser=None):

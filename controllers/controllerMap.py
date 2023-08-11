@@ -1,3 +1,6 @@
+from models.Ubicacion import Ubicacion
+from models.Usuario import Usuario
+from models.Destino_culinario import Destino_culinario
 class Controller_Map:
     def __init__(self,app) -> None:
         self.app = app
@@ -34,6 +37,32 @@ class Controller_Map:
                 if self.cocina_typo != 'Todos':
                     self.list_destinos = list(filter(self.type_food,self.list_destinos))
             return self.list_destinos
-    def search_id_ubicacion(self):
+    def add_location_map(self,id):
+        location = Ubicacion().searchUbicacion(id)
+        if location :
+            return location
+        else :
+            print('No existe localizaciones de los destinos')
+    def add_path_favorite(self,id):
         pass
-        
+
+    def open_windows(self,windowFather,destino_id):
+        data_detail = self.show_elements_destino(destino_id)
+        self.app.detailview(windowFather,destino_id,data_detail)
+        print(self.app.s)
+    def show_elements_destino(self,destino_id):
+        print('encontre esto',Destino_culinario().searchDestino(destino_id))
+        return Destino_culinario().searchDestino(destino_id)
+    def add_path_history_user(self,id_destino):
+        session_user = self.app.user_controller.session
+        print('mostrame',session_user)
+        if session_user is not None:
+            confirm = Usuario().add_element_history_path(session_user,id_destino)
+            if confirm:
+                print("Se agregó al historial")
+            else:
+                print("Hubo un error en el registro del histórico")
+        else:
+            print('no existe user')
+    def open_window_calificacion(self,window_father,id_destino):
+        self.app.calificacion_view(window_father,id_destino,self.app)

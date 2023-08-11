@@ -20,17 +20,17 @@ class Nav_Options(ctk.CTkFrame):
         self.destino_culinario = ctk.CTkLabel(self.frame_option,text='',fg_color='#343a40',width=5,height=30)
         self.destino_culinario.place(x=14,y=50)
 
-        boton_menu = ctk.CTkButton(self.frame_option, text='Menu',font=('Bold',18),text_color='white',fg_color='#343a40',command=lambda:self.indicate(self.indicate_menu,self.view_menu))
-        boton_menu.place(x=20, y=100)
+        boton_historial = ctk.CTkButton(self.frame_option, text='Historial de rutas',font=('Bold',18),text_color='white',fg_color='#343a40',command=lambda:self.indicate(self.indicate_menu,self.view_history))
+        boton_historial.place(x=20, y=100)
         self.indicate_menu = ctk.CTkLabel(self.frame_option,text='',fg_color='#343a40',width=5,height=30)
         self.indicate_menu.place(x=14,y=100)
 
-        boton_about = ctk.CTkButton(self.frame_option, text='About',font=('Bold',18),text_color='white',fg_color='#343a40',command=lambda:self.indicate(self.indicate_about,self.view_about))
-        boton_about.place(x=20, y=150)
-        self.indicate_about = ctk.CTkLabel(self.frame_option,text='',fg_color='#343a40',width=5,height=30)
-        self.indicate_about.place(x=14,y=150)
+        boton_review = ctk.CTkButton(self.frame_option, text='Reviews',font=('Bold',18),text_color='white',fg_color='#343a40',command=lambda:self.indicate(self.indicate_calificacion,self.view_about))
+        boton_review.place(x=20, y=150)
+        self.indicate_calificacion = ctk.CTkLabel(self.frame_option,text='',fg_color='#343a40',width=5,height=30)
+        self.indicate_calificacion.place(x=14,y=150)
         
-        self.name_user = ctk.CTkLabel(self.frame_option,text=self.controller.session.nombre if self.controller.session != None else '',fg_color='#343a40',text_color='white',font=('Bold',18),padx=10, pady=5)
+        self.name_user = ctk.CTkLabel(self.frame_option,text=self.controller.session['nombre'] if self.controller.session != None else '',fg_color='#343a40',text_color='white',font=('Bold',18),padx=10, pady=5)
         self.name_user.place(x=30, y=600)
         self.icon_connect = ctk.CTkLabel(self.frame_option,text='',fg_color='#02c39a',font=('Bold',18),width=15,height=15)
         self.icon_connect.place(x=20, y=605)
@@ -51,17 +51,17 @@ class Nav_Options(ctk.CTkFrame):
     def remove_indicate(self):
         self.destino_culinario.configure(fg_color='#343a40')
         self.indicate_menu.configure(fg_color='#343a40')
-        self.indicate_about.configure(fg_color='#343a40')
+        self.indicate_calificacion.configure(fg_color='#343a40')
         # views options
     def view_map(self):
-         map = self.app.map_view(self.main_frame,self.app.destinos_culinarios,self.controllerMap )
+         map = self.app.map_view(self.main_frame,self.app,self.controllerMap )
          map.pack(side=ctk.LEFT)
-    def view_menu(self):
-        menu = ctk.CTkFrame(self.main_frame,fg_color='red',width=820,height=700)
-        menu.pack(side=ctk.LEFT)
+    def view_history(self):
+        historial = self.app.history_user_view(self.main_frame,self.app)
+        historial.pack(side=ctk.LEFT)
     def view_about(self):
-        about = ctk.CTkFrame(self.main_frame,fg_color='yellow',width=820,height=700)
-        about.pack(side=ctk.LEFT)
+        reviews =  self.app.reviews_views(self.main_frame,self.app)
+        reviews.pack(side=ctk.LEFT)
     def delete_page(self):
         for frame in self.main_frame.winfo_children():
             frame.destroy()
