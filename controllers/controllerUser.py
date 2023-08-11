@@ -1,13 +1,13 @@
 from models.Usuario import Usuario
-from models.favoritos_manager import favoritos_manager
+from models.favoritos_manager import FavoritosManager
 
 class ControllerUser:
     def __init__(self, app):
         self.app = app
-        self.favoritos_manager = favoritos_manager()
+        self.favoritos_manager = FavoritosManager()
         self.session = None
      #    self.session =  {"id": '04d47e15-44ec-44a7-91b2-a4ca87a7fd2c', "nombre": 'Andres', "apellido": 'DIaz', "email": 'myemail1@gmail.com', "password": 'mypassword', "historial_rutas": []}
-     def register_user(self):
+    def register_user(self):
             data_user = self.app.user_view.return_data_user()
             newUser = Usuario(**data_user)
             comprobate_errors = newUser.comprobate_property()
